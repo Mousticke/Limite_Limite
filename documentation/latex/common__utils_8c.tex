@@ -1,0 +1,186 @@
+\hypertarget{common__utils_8c}{}\section{utils/common\+\_\+utils.c File Reference}
+\label{common__utils_8c}\index{utils/common\+\_\+utils.\+c@{utils/common\+\_\+utils.\+c}}
+
+
+Projet de M\+C\+S3 2016 2017.  
+
+
+{\ttfamily \#include \char`\"{}common\+\_\+utils.\+h\char`\"{}}\\*
+Include dependency graph for common\+\_\+utils.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{common__utils_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{common__utils_8c_a1b072ac8427872e8a98ce851e63c83a6}{send\+\_\+prepared\+\_\+msg} (char $\ast$pmsg, int socket)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}envoie d\textquotesingle{}un message à une socket. \end{DoxyCompactList}\item 
+void \hyperlink{common__utils_8c_ae4f3f9ada6d59ea5dec501237ddada3a}{send\+\_\+msg} (int msg\+\_\+code, const char $\ast$payload, int socket)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}envoie d\textquotesingle{}un message à une socket avec le code du message de type string. \end{DoxyCompactList}\item 
+void \hyperlink{common__utils_8c_aaac454174096db6da8cdd9130187bac9}{send\+\_\+light\+\_\+msg} (int msg\+\_\+code, int socket)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}envoie d\textquotesingle{}un message à une socket sans le détaille. \end{DoxyCompactList}\item 
+void \hyperlink{common__utils_8c_a53e6dc4a99bd00249494edba6e34bd35}{send\+\_\+int\+\_\+msg} (int msg\+\_\+code, int payload, int socket)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}envoie d\textquotesingle{}un message à une socket avec un code de type int. \end{DoxyCompactList}\item 
+int \hyperlink{common__utils_8c_a1a4302eb8f903a67faf8903b0aeca91a}{extract\+\_\+msg\+\_\+code} (char $\ast$$\ast$msg)
+\begin{DoxyCompactList}\small\item\em Fonction qui prend le code message. \end{DoxyCompactList}\item 
+int \hyperlink{common__utils_8c_a162413542224a8c041274ce30269fa3b}{decode\+\_\+msg\+\_\+payload} (char $\ast$$\ast$raw\+\_\+payload, int $\ast$decoded\+\_\+payload, int max\+\_\+elements)
+\begin{DoxyCompactList}\small\item\em Décoder le message passé en paramètre des fonctions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Projet de M\+C\+S3 2016 2017. 
+
+\begin{DoxyAuthor}{Author}
+B\+E\+N\+C\+H\+I\+HA -\/ S\+A\+L\+E\+N\+G\+RO -\/ L\+E\+F\+O\+RT 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+D\+E\+C\+E\+M\+B\+RE -\/ J\+A\+N\+V\+I\+ER
+\end{DoxyDate}
+Fichier gérant les fonctions utilisées par le client et le serveur M\+SG C\+O\+DE dans config 
+
+\subsection{Function Documentation}
+\index{common\+\_\+utils.\+c@{common\+\_\+utils.\+c}!decode\+\_\+msg\+\_\+payload@{decode\+\_\+msg\+\_\+payload}}
+\index{decode\+\_\+msg\+\_\+payload@{decode\+\_\+msg\+\_\+payload}!common\+\_\+utils.\+c@{common\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{decode\+\_\+msg\+\_\+payload(char $\ast$$\ast$raw\+\_\+payload, int $\ast$decoded\+\_\+payload, int max\+\_\+elements)}{decode_msg_payload(char **raw_payload, int *decoded_payload, int max_elements)}}]{\setlength{\rightskip}{0pt plus 5cm}int decode\+\_\+msg\+\_\+payload (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{raw\+\_\+payload, }
+\item[{int $\ast$}]{decoded\+\_\+payload, }
+\item[{int}]{max\+\_\+elements}
+\end{DoxyParamCaption}
+)}\hypertarget{common__utils_8c_a162413542224a8c041274ce30269fa3b}{}\label{common__utils_8c_a162413542224a8c041274ce30269fa3b}
+
+
+Décoder le message passé en paramètre des fonctions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$raw\+\_\+payload} & \\
+\hline
+{\em $\ast$decode\+\_\+payload} & \\
+\hline
+{\em max\+\_\+elements} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\index{common\+\_\+utils.\+c@{common\+\_\+utils.\+c}!extract\+\_\+msg\+\_\+code@{extract\+\_\+msg\+\_\+code}}
+\index{extract\+\_\+msg\+\_\+code@{extract\+\_\+msg\+\_\+code}!common\+\_\+utils.\+c@{common\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{extract\+\_\+msg\+\_\+code(char $\ast$$\ast$msg)}{extract_msg_code(char **msg)}}]{\setlength{\rightskip}{0pt plus 5cm}int extract\+\_\+msg\+\_\+code (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{common__utils_8c_a1a4302eb8f903a67faf8903b0aeca91a}{}\label{common__utils_8c_a1a4302eb8f903a67faf8903b0aeca91a}
+
+
+Fonction qui prend le code message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$msg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\index{common\+\_\+utils.\+c@{common\+\_\+utils.\+c}!send\+\_\+int\+\_\+msg@{send\+\_\+int\+\_\+msg}}
+\index{send\+\_\+int\+\_\+msg@{send\+\_\+int\+\_\+msg}!common\+\_\+utils.\+c@{common\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{send\+\_\+int\+\_\+msg(int msg\+\_\+code, int payload, int socket)}{send_int_msg(int msg_code, int payload, int socket)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+\_\+int\+\_\+msg (
+\begin{DoxyParamCaption}
+\item[{int}]{msg\+\_\+code, }
+\item[{int}]{payload, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\hypertarget{common__utils_8c_a53e6dc4a99bd00249494edba6e34bd35}{}\label{common__utils_8c_a53e6dc4a99bd00249494edba6e34bd35}
+
+
+Fonction d\textquotesingle{}envoie d\textquotesingle{}un message à une socket avec un code de type int. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg\+\_\+code} & \\
+\hline
+{\em payload} & \\
+\hline
+{\em socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{common\+\_\+utils.\+c@{common\+\_\+utils.\+c}!send\+\_\+light\+\_\+msg@{send\+\_\+light\+\_\+msg}}
+\index{send\+\_\+light\+\_\+msg@{send\+\_\+light\+\_\+msg}!common\+\_\+utils.\+c@{common\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{send\+\_\+light\+\_\+msg(int msg\+\_\+code, int socket)}{send_light_msg(int msg_code, int socket)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+\_\+light\+\_\+msg (
+\begin{DoxyParamCaption}
+\item[{int}]{msg\+\_\+code, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\hypertarget{common__utils_8c_aaac454174096db6da8cdd9130187bac9}{}\label{common__utils_8c_aaac454174096db6da8cdd9130187bac9}
+
+
+Fonction d\textquotesingle{}envoie d\textquotesingle{}un message à une socket sans le détaille. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg\+\_\+code} & \\
+\hline
+{\em socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{common\+\_\+utils.\+c@{common\+\_\+utils.\+c}!send\+\_\+msg@{send\+\_\+msg}}
+\index{send\+\_\+msg@{send\+\_\+msg}!common\+\_\+utils.\+c@{common\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{send\+\_\+msg(int msg\+\_\+code, const char $\ast$payload, int socket)}{send_msg(int msg_code, const char *payload, int socket)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+\_\+msg (
+\begin{DoxyParamCaption}
+\item[{int}]{msg\+\_\+code, }
+\item[{const char $\ast$}]{payload, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\hypertarget{common__utils_8c_ae4f3f9ada6d59ea5dec501237ddada3a}{}\label{common__utils_8c_ae4f3f9ada6d59ea5dec501237ddada3a}
+
+
+Fonction d\textquotesingle{}envoie d\textquotesingle{}un message à une socket avec le code du message de type string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg\+\_\+code} & \\
+\hline
+{\em $\ast$payload} & \\
+\hline
+{\em socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{common\+\_\+utils.\+c@{common\+\_\+utils.\+c}!send\+\_\+prepared\+\_\+msg@{send\+\_\+prepared\+\_\+msg}}
+\index{send\+\_\+prepared\+\_\+msg@{send\+\_\+prepared\+\_\+msg}!common\+\_\+utils.\+c@{common\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{send\+\_\+prepared\+\_\+msg(char $\ast$pmsg, int socket)}{send_prepared_msg(char *pmsg, int socket)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+\_\+prepared\+\_\+msg (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\hypertarget{common__utils_8c_a1b072ac8427872e8a98ce851e63c83a6}{}\label{common__utils_8c_a1b072ac8427872e8a98ce851e63c83a6}
+
+
+Fonction d\textquotesingle{}envoie d\textquotesingle{}un message à une socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$msg} & \\
+\hline
+{\em socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}

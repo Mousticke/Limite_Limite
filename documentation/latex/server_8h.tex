@@ -1,0 +1,564 @@
+\hypertarget{server_8h}{}\section{serveur/server.h File Reference}
+\label{server_8h}\index{serveur/server.\+h@{serveur/server.\+h}}
+
+
+Projet de M\+C\+S3 2016 2017.  
+
+
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ipc.\+h$>$}\\*
+{\ttfamily \#include $<$sys/shm.\+h$>$}\\*
+{\ttfamily \#include $<$sys/wait.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}../utils/common\+\_\+utils.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../utils/server\+\_\+utils.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../config/cards.\+h\char`\"{}}\\*
+Include dependency graph for server.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{server_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{server_8h_ab1de365cca5246cc09e4bd07dbad5c29}{M\+I\+N\+\_\+\+P\+L\+A\+Y\+E\+RS}~2
+\item 
+\#define \hyperlink{server_8h_a614217d263be1fb1a5f76e2ff7be19a2}{P\+O\+RT}~\hyperlink{ports_8h_a1725876d3b41d0601d59768e442b7907}{P\+O\+R\+T\+\_\+\+D\+I\+M\+OV}
+\item 
+\#define \hyperlink{server_8h_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~1024
+\item 
+\#define \hyperlink{server_8h_aeefbbafa97642defe3ee6c3080b7d66f}{B\+A\+C\+K\+L\+OG}~5
+\item 
+\#define \hyperlink{server_8h_a7c331dacb70e375dd02bfef709b71ea3}{C\+O\+U\+N\+T\+D\+O\+WN}~10
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{server_8h_a6b8fa7d1c828463f6e6650a7dbc743e3}{fct\+\_\+ptr}) ()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{server_8h_adbe4457a6e14fb0e0e5da917d6edd2d5}{init\+\_\+server} (int $\ast$, struct sockaddr\+\_\+in $\ast$)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}initialisation du serveur. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a9114ecbd0839e6cce5b379ebc11586bb}{alarm\+\_\+handler} (int)
+\begin{DoxyCompactList}\small\item\em Fonction signal qui regarde s\textquotesingle{}il y a au moins deux joueurs. Sinon ça quitte le jeu. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_abcbf6c09394bb6a1db56ecf5c888fb87}{interrupt\+\_\+handler} (int)
+\begin{DoxyCompactList}\small\item\em Fonction de déconnexion d\textquotesingle{}un client suita à un controle C. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a30ce08aef9e75d64b27e69f6ce0756b6}{shutdown\+\_\+socket} (int)
+\begin{DoxyCompactList}\small\item\em Fonction de fermeture de la socket. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a823119f7fbe44e03c0d173e74a595a0b}{shutdown\+\_\+server} ()
+\begin{DoxyCompactList}\small\item\em Fonction de fermeture du serveur. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_ad0bb1df570a4d34b036daf228388a0c1}{add\+\_\+client} (int, struct sockaddr\+\_\+in $\ast$)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}ajout d\textquotesingle{}un client au serveur. Si le jeu est en cours, on refuse la connexion S\textquotesingle{}il y a 4 personnes on ferme le lobby. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_aa694be34287e456e5e22f60cedd022e5}{add\+\_\+player} (int)
+\begin{DoxyCompactList}\small\item\em Fonction qio ajoute un joueur. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a5f5cfa1c29d50ae0940221fe0ad03651}{remove\+\_\+player} (\hyperlink{structplayer}{player} $\ast$, int, \hyperlink{config_8h_a1062901a7428fdd9c7f180f5e01ea056}{bool})
+\begin{DoxyCompactList}\small\item\em Fonction qui retire un joueur. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a70b88da842b28ecee8ce334b84d1a9fa}{refuse\+\_\+connection} (int)
+\begin{DoxyCompactList}\small\item\em Fonction de refus de connexion. Envoie d\textquotesingle{}un message avec le code R\+E\+F\+US défini dans \hyperlink{config_8h}{config.\+h}. \end{DoxyCompactList}\item 
+\hyperlink{config_8h_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{server_8h_a0814d98ff87d4d6d4781f873bfdf4f39}{receive\+\_\+msg} (char $\ast$, int)
+\begin{DoxyCompactList}\small\item\em Fonction de Récception de message du serveur. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_ab9543a9dd0c09cdb40d921ea26308f80}{clear\+\_\+lobby} ()
+\begin{DoxyCompactList}\small\item\em Fonction de nettoyage du lobby après qu\textquotesingle{}un joueur ait quitté le salon. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a586579926dbdc1e0c4b4fcecd2eacb7b}{add\+\_\+nickname} (int, char $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Fonction qui ajoute le pseudo de 20 char max. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a671b58f5509a3a9fa692bacccfc32cc9}{start\+\_\+game} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui met le jeu en marche. Du coup, le jeu est en statut \+: \char`\"{}\+En cours\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a528ee6cf05cb3b1af23306dc055e5eb3}{deal\+\_\+cards} ()
+\begin{DoxyCompactList}\small\item\em Fonction de distribution des cartes. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_ac81d67cd3689820d5a77d7a302a69e5c}{start\+\_\+round} ()
+\begin{DoxyCompactList}\small\item\em Fonction de démarrage du round. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a0aba0f88abe71a413343d35ee5995683}{receive\+\_\+card} (int, char $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Fonction de réception des cartes. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a26877a4a2039828bb05743dce8916132}{end\+\_\+round} (int, char $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Fonction terminer un round. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_afbb3dc95041fa32e01347ab80cc8c0fb}{update\+\_\+score} (int, char $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Fonction de mise à jour du score. \end{DoxyCompactList}\item 
+void \hyperlink{server_8h_a0801e69c9acfc06f40c84fc699d364d2}{create\+\_\+nicknames\+\_\+shared\+\_\+memory} (char $\ast$nickname)
+\item 
+void \hyperlink{server_8h_a4202fa5c5191c7e387d7570da6c8cd8c}{end\+\_\+game} ()
+\begin{DoxyCompactList}\small\item\em Fonction de fin de jeu. \end{DoxyCompactList}\item 
+int \hyperlink{server_8h_afdfc614e744d8d0a06fb97fd753b39c9}{find\+\_\+index} (\hyperlink{structplayer}{player} $\ast$, int)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}indexage des joueurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Projet de M\+C\+S3 2016 2017. 
+
+\begin{DoxyAuthor}{Author}
+B\+E\+N\+C\+H\+I\+HA -\/ S\+A\+L\+E\+N\+G\+RO -\/ L\+E\+F\+O\+RT 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+D\+E\+C\+E\+M\+B\+RE -\/ J\+A\+N\+V\+I\+ER
+\end{DoxyDate}
+Fichier gérant les variables du serveur 
+
+\subsection{Macro Definition Documentation}
+\index{server.\+h@{server.\+h}!B\+A\+C\+K\+L\+OG@{B\+A\+C\+K\+L\+OG}}
+\index{B\+A\+C\+K\+L\+OG@{B\+A\+C\+K\+L\+OG}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{B\+A\+C\+K\+L\+OG}{BACKLOG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+A\+C\+K\+L\+OG~5}\hypertarget{server_8h_aeefbbafa97642defe3ee6c3080b7d66f}{}\label{server_8h_aeefbbafa97642defe3ee6c3080b7d66f}
+\index{server.\+h@{server.\+h}!B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}
+\index{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}{BUFFER_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~1024}\hypertarget{server_8h_a6b20d41d6252e9871430c242cb1a56e7}{}\label{server_8h_a6b20d41d6252e9871430c242cb1a56e7}
+\index{server.\+h@{server.\+h}!C\+O\+U\+N\+T\+D\+O\+WN@{C\+O\+U\+N\+T\+D\+O\+WN}}
+\index{C\+O\+U\+N\+T\+D\+O\+WN@{C\+O\+U\+N\+T\+D\+O\+WN}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{C\+O\+U\+N\+T\+D\+O\+WN}{COUNTDOWN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+U\+N\+T\+D\+O\+WN~10}\hypertarget{server_8h_a7c331dacb70e375dd02bfef709b71ea3}{}\label{server_8h_a7c331dacb70e375dd02bfef709b71ea3}
+\index{server.\+h@{server.\+h}!M\+I\+N\+\_\+\+P\+L\+A\+Y\+E\+RS@{M\+I\+N\+\_\+\+P\+L\+A\+Y\+E\+RS}}
+\index{M\+I\+N\+\_\+\+P\+L\+A\+Y\+E\+RS@{M\+I\+N\+\_\+\+P\+L\+A\+Y\+E\+RS}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{M\+I\+N\+\_\+\+P\+L\+A\+Y\+E\+RS}{MIN_PLAYERS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+I\+N\+\_\+\+P\+L\+A\+Y\+E\+RS~2}\hypertarget{server_8h_ab1de365cca5246cc09e4bd07dbad5c29}{}\label{server_8h_ab1de365cca5246cc09e4bd07dbad5c29}
+\index{server.\+h@{server.\+h}!P\+O\+RT@{P\+O\+RT}}
+\index{P\+O\+RT@{P\+O\+RT}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{P\+O\+RT}{PORT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+O\+RT~{\bf P\+O\+R\+T\+\_\+\+D\+I\+M\+OV}}\hypertarget{server_8h_a614217d263be1fb1a5f76e2ff7be19a2}{}\label{server_8h_a614217d263be1fb1a5f76e2ff7be19a2}
+
+
+\subsection{Typedef Documentation}
+\index{server.\+h@{server.\+h}!fct\+\_\+ptr@{fct\+\_\+ptr}}
+\index{fct\+\_\+ptr@{fct\+\_\+ptr}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{fct\+\_\+ptr}{fct_ptr}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ fct\+\_\+ptr) ()}\hypertarget{server_8h_a6b8fa7d1c828463f6e6650a7dbc743e3}{}\label{server_8h_a6b8fa7d1c828463f6e6650a7dbc743e3}
+
+
+\subsection{Function Documentation}
+\index{server.\+h@{server.\+h}!add\+\_\+client@{add\+\_\+client}}
+\index{add\+\_\+client@{add\+\_\+client}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{add\+\_\+client(int, struct sockaddr\+\_\+in $\ast$)}{add_client(int, struct sockaddr_in *)}}]{\setlength{\rightskip}{0pt plus 5cm}void add\+\_\+client (
+\begin{DoxyParamCaption}
+\item[{int}]{server\+\_\+socket, }
+\item[{struct sockaddr\+\_\+in $\ast$}]{cl\+\_\+addr}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_ad0bb1df570a4d34b036daf228388a0c1}{}\label{server_8h_ad0bb1df570a4d34b036daf228388a0c1}
+
+
+Fonction d\textquotesingle{}ajout d\textquotesingle{}un client au serveur. Si le jeu est en cours, on refuse la connexion S\textquotesingle{}il y a 4 personnes on ferme le lobby. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+\_\+socket} & \\
+\hline
+{\em $\ast$cl\+\_\+addr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!add\+\_\+nickname@{add\+\_\+nickname}}
+\index{add\+\_\+nickname@{add\+\_\+nickname}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{add\+\_\+nickname(int, char $\ast$$\ast$)}{add_nickname(int, char **)}}]{\setlength{\rightskip}{0pt plus 5cm}void add\+\_\+nickname (
+\begin{DoxyParamCaption}
+\item[{int}]{socket, }
+\item[{char $\ast$$\ast$}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a586579926dbdc1e0c4b4fcecd2eacb7b}{}\label{server_8h_a586579926dbdc1e0c4b4fcecd2eacb7b}
+
+
+Fonction qui ajoute le pseudo de 20 char max. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & \\
+\hline
+{\em $\ast$$\ast$msg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!add\+\_\+player@{add\+\_\+player}}
+\index{add\+\_\+player@{add\+\_\+player}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{add\+\_\+player(int)}{add_player(int)}}]{\setlength{\rightskip}{0pt plus 5cm}void add\+\_\+player (
+\begin{DoxyParamCaption}
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_aa694be34287e456e5e22f60cedd022e5}{}\label{server_8h_aa694be34287e456e5e22f60cedd022e5}
+
+
+Fonction qio ajoute un joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!alarm\+\_\+handler@{alarm\+\_\+handler}}
+\index{alarm\+\_\+handler@{alarm\+\_\+handler}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{alarm\+\_\+handler(int)}{alarm_handler(int)}}]{\setlength{\rightskip}{0pt plus 5cm}void alarm\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{int}]{signum}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a9114ecbd0839e6cce5b379ebc11586bb}{}\label{server_8h_a9114ecbd0839e6cce5b379ebc11586bb}
+
+
+Fonction signal qui regarde s\textquotesingle{}il y a au moins deux joueurs. Sinon ça quitte le jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signum} & numéro du signal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!clear\+\_\+lobby@{clear\+\_\+lobby}}
+\index{clear\+\_\+lobby@{clear\+\_\+lobby}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{clear\+\_\+lobby()}{clear_lobby()}}]{\setlength{\rightskip}{0pt plus 5cm}void clear\+\_\+lobby (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_ab9543a9dd0c09cdb40d921ea26308f80}{}\label{server_8h_ab9543a9dd0c09cdb40d921ea26308f80}
+
+
+Fonction de nettoyage du lobby après qu\textquotesingle{}un joueur ait quitté le salon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V\+O\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!create\+\_\+nicknames\+\_\+shared\+\_\+memory@{create\+\_\+nicknames\+\_\+shared\+\_\+memory}}
+\index{create\+\_\+nicknames\+\_\+shared\+\_\+memory@{create\+\_\+nicknames\+\_\+shared\+\_\+memory}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{create\+\_\+nicknames\+\_\+shared\+\_\+memory(char $\ast$nickname)}{create_nicknames_shared_memory(char *nickname)}}]{\setlength{\rightskip}{0pt plus 5cm}void create\+\_\+nicknames\+\_\+shared\+\_\+memory (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{nickname}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a0801e69c9acfc06f40c84fc699d364d2}{}\label{server_8h_a0801e69c9acfc06f40c84fc699d364d2}
+\index{server.\+h@{server.\+h}!deal\+\_\+cards@{deal\+\_\+cards}}
+\index{deal\+\_\+cards@{deal\+\_\+cards}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{deal\+\_\+cards()}{deal_cards()}}]{\setlength{\rightskip}{0pt plus 5cm}void deal\+\_\+cards (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a528ee6cf05cb3b1af23306dc055e5eb3}{}\label{server_8h_a528ee6cf05cb3b1af23306dc055e5eb3}
+
+
+Fonction de distribution des cartes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!end\+\_\+game@{end\+\_\+game}}
+\index{end\+\_\+game@{end\+\_\+game}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{end\+\_\+game()}{end_game()}}]{\setlength{\rightskip}{0pt plus 5cm}void end\+\_\+game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a4202fa5c5191c7e387d7570da6c8cd8c}{}\label{server_8h_a4202fa5c5191c7e387d7570da6c8cd8c}
+
+
+Fonction de fin de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em information} & boolean qui va vérifier si on s\textquotesingle{}est déconnecté ou pas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!end\+\_\+round@{end\+\_\+round}}
+\index{end\+\_\+round@{end\+\_\+round}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{end\+\_\+round(int, char $\ast$$\ast$)}{end_round(int, char **)}}]{\setlength{\rightskip}{0pt plus 5cm}void end\+\_\+round (
+\begin{DoxyParamCaption}
+\item[{int}]{socket, }
+\item[{char $\ast$$\ast$}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a26877a4a2039828bb05743dce8916132}{}\label{server_8h_a26877a4a2039828bb05743dce8916132}
+
+
+Fonction terminer un round. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & \\
+\hline
+{\em $\ast$$\ast$msg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!find\+\_\+index@{find\+\_\+index}}
+\index{find\+\_\+index@{find\+\_\+index}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{find\+\_\+index(player $\ast$, int)}{find_index(player *, int)}}]{\setlength{\rightskip}{0pt plus 5cm}int find\+\_\+index (
+\begin{DoxyParamCaption}
+\item[{{\bf player} $\ast$}]{joueurs, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_afdfc614e744d8d0a06fb97fd753b39c9}{}\label{server_8h_afdfc614e744d8d0a06fb97fd753b39c9}
+
+
+Fonction d\textquotesingle{}indexage des joueurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joueurs} & structure de données défini dans \hyperlink{server__utils_8h}{server\+\_\+utils.\+h} \\
+\hline
+{\em socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!init\+\_\+server@{init\+\_\+server}}
+\index{init\+\_\+server@{init\+\_\+server}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{init\+\_\+server(int $\ast$, struct sockaddr\+\_\+in $\ast$)}{init_server(int *, struct sockaddr_in *)}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+\_\+server (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{server\+\_\+socket, }
+\item[{struct sockaddr\+\_\+in $\ast$}]{my\+\_\+addr}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_adbe4457a6e14fb0e0e5da917d6edd2d5}{}\label{server_8h_adbe4457a6e14fb0e0e5da917d6edd2d5}
+
+
+Fonction d\textquotesingle{}initialisation du serveur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$server\+\_\+socket} & \\
+\hline
+{\em $\ast$my\+\_\+addr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!interrupt\+\_\+handler@{interrupt\+\_\+handler}}
+\index{interrupt\+\_\+handler@{interrupt\+\_\+handler}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{interrupt\+\_\+handler(int)}{interrupt_handler(int)}}]{\setlength{\rightskip}{0pt plus 5cm}void interrupt\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{int}]{signum}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_abcbf6c09394bb6a1db56ecf5c888fb87}{}\label{server_8h_abcbf6c09394bb6a1db56ecf5c888fb87}
+
+
+Fonction de déconnexion d\textquotesingle{}un client suita à un controle C. 
+
+Fonction de signal d\textquotesingle{}interruption.
+
+
+\begin{DoxyParams}{Parameters}
+{\em signum} & signal vérifiant le controle C \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em signum} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!receive\+\_\+card@{receive\+\_\+card}}
+\index{receive\+\_\+card@{receive\+\_\+card}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{receive\+\_\+card(int, char $\ast$$\ast$)}{receive_card(int, char **)}}]{\setlength{\rightskip}{0pt plus 5cm}void receive\+\_\+card (
+\begin{DoxyParamCaption}
+\item[{int}]{socket, }
+\item[{char $\ast$$\ast$}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a0aba0f88abe71a413343d35ee5995683}{}\label{server_8h_a0aba0f88abe71a413343d35ee5995683}
+
+
+Fonction de réception des cartes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & \\
+\hline
+{\em $\ast$$\ast$msg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!receive\+\_\+msg@{receive\+\_\+msg}}
+\index{receive\+\_\+msg@{receive\+\_\+msg}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{receive\+\_\+msg(char $\ast$, int)}{receive_msg(char *, int)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} receive\+\_\+msg (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a0814d98ff87d4d6d4781f873bfdf4f39}{}\label{server_8h_a0814d98ff87d4d6d4781f873bfdf4f39}
+
+
+Fonction de Récception de message du serveur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$msg} & \\
+\hline
+{\em fd} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!refuse\+\_\+connection@{refuse\+\_\+connection}}
+\index{refuse\+\_\+connection@{refuse\+\_\+connection}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{refuse\+\_\+connection(int)}{refuse_connection(int)}}]{\setlength{\rightskip}{0pt plus 5cm}void refuse\+\_\+connection (
+\begin{DoxyParamCaption}
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a70b88da842b28ecee8ce334b84d1a9fa}{}\label{server_8h_a70b88da842b28ecee8ce334b84d1a9fa}
+
+
+Fonction de refus de connexion. Envoie d\textquotesingle{}un message avec le code R\+E\+F\+US défini dans \hyperlink{config_8h}{config.\+h}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!remove\+\_\+player@{remove\+\_\+player}}
+\index{remove\+\_\+player@{remove\+\_\+player}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{remove\+\_\+player(player $\ast$, int, bool)}{remove_player(player *, int, bool)}}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+\_\+player (
+\begin{DoxyParamCaption}
+\item[{{\bf player} $\ast$}]{joueurs, }
+\item[{int}]{index, }
+\item[{{\bf bool}}]{sockopen}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a5f5cfa1c29d50ae0940221fe0ad03651}{}\label{server_8h_a5f5cfa1c29d50ae0940221fe0ad03651}
+
+
+Fonction qui retire un joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em joueur} & \\
+\hline
+{\em index} & \\
+\hline
+{\em sockopen} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!shutdown\+\_\+server@{shutdown\+\_\+server}}
+\index{shutdown\+\_\+server@{shutdown\+\_\+server}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{shutdown\+\_\+server()}{shutdown_server()}}]{\setlength{\rightskip}{0pt plus 5cm}void shutdown\+\_\+server (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a823119f7fbe44e03c0d173e74a595a0b}{}\label{server_8h_a823119f7fbe44e03c0d173e74a595a0b}
+
+
+Fonction de fermeture du serveur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!shutdown\+\_\+socket@{shutdown\+\_\+socket}}
+\index{shutdown\+\_\+socket@{shutdown\+\_\+socket}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{shutdown\+\_\+socket(int)}{shutdown_socket(int)}}]{\setlength{\rightskip}{0pt plus 5cm}void shutdown\+\_\+socket (
+\begin{DoxyParamCaption}
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a30ce08aef9e75d64b27e69f6ce0756b6}{}\label{server_8h_a30ce08aef9e75d64b27e69f6ce0756b6}
+
+
+Fonction de fermeture de la socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!start\+\_\+game@{start\+\_\+game}}
+\index{start\+\_\+game@{start\+\_\+game}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{start\+\_\+game()}{start_game()}}]{\setlength{\rightskip}{0pt plus 5cm}void start\+\_\+game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_a671b58f5509a3a9fa692bacccfc32cc9}{}\label{server_8h_a671b58f5509a3a9fa692bacccfc32cc9}
+
+
+Fonction qui met le jeu en marche. Du coup, le jeu est en statut \+: \char`\"{}\+En cours\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V\+O\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!start\+\_\+round@{start\+\_\+round}}
+\index{start\+\_\+round@{start\+\_\+round}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{start\+\_\+round()}{start_round()}}]{\setlength{\rightskip}{0pt plus 5cm}void start\+\_\+round (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_ac81d67cd3689820d5a77d7a302a69e5c}{}\label{server_8h_ac81d67cd3689820d5a77d7a302a69e5c}
+
+
+Fonction de démarrage du round. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V\+O\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server.\+h@{server.\+h}!update\+\_\+score@{update\+\_\+score}}
+\index{update\+\_\+score@{update\+\_\+score}!server.\+h@{server.\+h}}
+\subsubsection[{\texorpdfstring{update\+\_\+score(int, char $\ast$$\ast$)}{update_score(int, char **)}}]{\setlength{\rightskip}{0pt plus 5cm}void update\+\_\+score (
+\begin{DoxyParamCaption}
+\item[{int}]{socket, }
+\item[{char $\ast$$\ast$}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{server_8h_afbb3dc95041fa32e01347ab80cc8c0fb}{}\label{server_8h_afbb3dc95041fa32e01347ab80cc8c0fb}
+
+
+Fonction de mise à jour du score. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & \\
+\hline
+{\em $\ast$$\ast$msg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}

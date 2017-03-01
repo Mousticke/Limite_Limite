@@ -1,0 +1,163 @@
+\hypertarget{server__utils_8c}{}\section{utils/server\+\_\+utils.c File Reference}
+\label{server__utils_8c}\index{utils/server\+\_\+utils.\+c@{utils/server\+\_\+utils.\+c}}
+
+
+Projet de M\+C\+S3 2016 2017.  
+
+
+{\ttfamily \#include \char`\"{}server\+\_\+utils.\+h\char`\"{}}\\*
+Include dependency graph for server\+\_\+utils.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server__utils_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{server__utils_8c_a763eeda4c9bfa1baf4151b50d541c1e9}{broadcast} (int msg\+\_\+code, char $\ast$payload, \hyperlink{structplayer}{player} $\ast$recipients, int rcp\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Diffusion du message envoyé au serveur. \end{DoxyCompactList}\item 
+void \hyperlink{server__utils_8c_a4ad5d5d2094d030edbdd5085d87aaa6a}{broadcast\+\_\+light} (int msg\+\_\+code, \hyperlink{structplayer}{player} $\ast$recipients, int rcp\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Diffusion du message envoyé au serveur sans le corps du message. \end{DoxyCompactList}\item 
+void \hyperlink{server__utils_8c_a3d194b02ce3591f5f20ac0db06e0b06d}{extract\+\_\+player\+\_\+nickname} (char $\ast$$\ast$msg, char $\ast$nickname)
+\begin{DoxyCompactList}\small\item\em Fonction qui extrait le nom du joueur envoyé au serveur. \end{DoxyCompactList}\item 
+int \hyperlink{server__utils_8c_ab7cc3806641017bc96af6fd10cabba98}{rand\+\_\+range} (int upper\+\_\+limit)
+\begin{DoxyCompactList}\small\item\em Fonction qui génère un nombre aléatoire dans le max de upperlimite. \end{DoxyCompactList}\item 
+\hyperlink{config_8h_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{server__utils_8c_a5dc1c39eb1f151b25bd0a5067aa8b594}{array\+\_\+contains} (int $\ast$haystack, int needle, int length)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Projet de M\+C\+S3 2016 2017. 
+
+\begin{DoxyAuthor}{Author}
+B\+E\+N\+C\+H\+I\+HA -\/ S\+A\+L\+E\+N\+G\+RO -\/ L\+E\+F\+O\+RT 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+D\+E\+C\+E\+M\+B\+RE -\/ J\+A\+N\+V\+I\+ER
+\end{DoxyDate}
+Fichier gérant les fonctions utilisées par le serveur 
+
+\subsection{Function Documentation}
+\index{server\+\_\+utils.\+c@{server\+\_\+utils.\+c}!array\+\_\+contains@{array\+\_\+contains}}
+\index{array\+\_\+contains@{array\+\_\+contains}!server\+\_\+utils.\+c@{server\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{array\+\_\+contains(int $\ast$haystack, int needle, int length)}{array_contains(int *haystack, int needle, int length)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} array\+\_\+contains (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{haystack, }
+\item[{int}]{needle, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{server__utils_8c_a5dc1c39eb1f151b25bd0a5067aa8b594}{}\label{server__utils_8c_a5dc1c39eb1f151b25bd0a5067aa8b594}
+\index{server\+\_\+utils.\+c@{server\+\_\+utils.\+c}!broadcast@{broadcast}}
+\index{broadcast@{broadcast}!server\+\_\+utils.\+c@{server\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{broadcast(int msg\+\_\+code, char $\ast$payload, player $\ast$recipients, int rcp\+\_\+count)}{broadcast(int msg_code, char *payload, player *recipients, int rcp_count)}}]{\setlength{\rightskip}{0pt plus 5cm}broadcast (
+\begin{DoxyParamCaption}
+\item[{int}]{msg\+\_\+code, }
+\item[{char $\ast$}]{payload, }
+\item[{{\bf player} $\ast$}]{recipients, }
+\item[{int}]{rcp\+\_\+count}
+\end{DoxyParamCaption}
+)}\hypertarget{server__utils_8c_a763eeda4c9bfa1baf4151b50d541c1e9}{}\label{server__utils_8c_a763eeda4c9bfa1baf4151b50d541c1e9}
+
+
+Diffusion du message envoyé au serveur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg\+\_\+code} & \\
+\hline
+{\em $\ast$payload} & \\
+\hline
+{\em $\ast$recipients} & \\
+\hline
+{\em rcp\+\_\+count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server\+\_\+utils.\+c@{server\+\_\+utils.\+c}!broadcast\+\_\+light@{broadcast\+\_\+light}}
+\index{broadcast\+\_\+light@{broadcast\+\_\+light}!server\+\_\+utils.\+c@{server\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{broadcast\+\_\+light(int msg\+\_\+code, player $\ast$recipients, int rcp\+\_\+count)}{broadcast_light(int msg_code, player *recipients, int rcp_count)}}]{\setlength{\rightskip}{0pt plus 5cm}broadcast\+\_\+light (
+\begin{DoxyParamCaption}
+\item[{int}]{msg\+\_\+code, }
+\item[{{\bf player} $\ast$}]{recipients, }
+\item[{int}]{rcp\+\_\+count}
+\end{DoxyParamCaption}
+)}\hypertarget{server__utils_8c_a4ad5d5d2094d030edbdd5085d87aaa6a}{}\label{server__utils_8c_a4ad5d5d2094d030edbdd5085d87aaa6a}
+
+
+Diffusion du message envoyé au serveur sans le corps du message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg\+\_\+code} & \\
+\hline
+{\em $\ast$payload} & \\
+\hline
+{\em $\ast$recipients} & \\
+\hline
+{\em rcp\+\_\+count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server\+\_\+utils.\+c@{server\+\_\+utils.\+c}!extract\+\_\+player\+\_\+nickname@{extract\+\_\+player\+\_\+nickname}}
+\index{extract\+\_\+player\+\_\+nickname@{extract\+\_\+player\+\_\+nickname}!server\+\_\+utils.\+c@{server\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{extract\+\_\+player\+\_\+nickname(char $\ast$$\ast$msg, char $\ast$nickname)}{extract_player_nickname(char **msg, char *nickname)}}]{\setlength{\rightskip}{0pt plus 5cm}extract\+\_\+player\+\_\+nickname (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{msg, }
+\item[{char $\ast$}]{nickname}
+\end{DoxyParamCaption}
+)}\hypertarget{server__utils_8c_a3d194b02ce3591f5f20ac0db06e0b06d}{}\label{server__utils_8c_a3d194b02ce3591f5f20ac0db06e0b06d}
+
+
+Fonction qui extrait le nom du joueur envoyé au serveur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signum} & numéro du signal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{server\+\_\+utils.\+c@{server\+\_\+utils.\+c}!rand\+\_\+range@{rand\+\_\+range}}
+\index{rand\+\_\+range@{rand\+\_\+range}!server\+\_\+utils.\+c@{server\+\_\+utils.\+c}}
+\subsubsection[{\texorpdfstring{rand\+\_\+range(int upper\+\_\+limit)}{rand_range(int upper_limit)}}]{\setlength{\rightskip}{0pt plus 5cm}int rand\+\_\+range (
+\begin{DoxyParamCaption}
+\item[{int}]{upper\+\_\+limit}
+\end{DoxyParamCaption}
+)}\hypertarget{server__utils_8c_ab7cc3806641017bc96af6fd10cabba98}{}\label{server__utils_8c_ab7cc3806641017bc96af6fd10cabba98}
+
+
+Fonction qui génère un nombre aléatoire dans le max de upperlimite. 
+
+Fonction qui vérifie si une carte est présente dans le tableau.
+
+
+\begin{DoxyParams}{Parameters}
+{\em upper\+\_\+limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$haystack} & \\
+\hline
+{\em needle} & \\
+\hline
+{\em length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}

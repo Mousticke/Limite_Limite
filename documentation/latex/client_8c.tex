@@ -1,0 +1,337 @@
+\hypertarget{client_8c}{}\section{client/client.c File Reference}
+\label{client_8c}\index{client/client.\+c@{client/client.\+c}}
+
+
+Projet de M\+C\+S3 2016 2017.  
+
+
+{\ttfamily \#include \char`\"{}client.\+h\char`\"{}}\\*
+Include dependency graph for client.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{client_8c_a4f63f6bd91eee4955bfb47c43c69580c}{disconnect} (\hyperlink{config_8h_a1062901a7428fdd9c7f180f5e01ea056}{bool} information)
+\begin{DoxyCompactList}\small\item\em Fonction de déconnexion d\textquotesingle{}un client. \end{DoxyCompactList}\item 
+void \hyperlink{client_8c_a1e135d989cd28349169939c6a73f2e87}{interrupt\+\_\+handler} (int signum)
+\begin{DoxyCompactList}\small\item\em Fonction de déconnexion d\textquotesingle{}un client suita à un controle C. \end{DoxyCompactList}\item 
+void \hyperlink{client_8c_a55a92a02360355337f5b149add054789}{refill} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui va remettre des cartes en jeu. \end{DoxyCompactList}\item 
+void \hyperlink{client_8c_ae4e7472a72b57c06f73a935270a8a7b4}{clear\+\_\+cards} ()
+\begin{DoxyCompactList}\small\item\em Fonction de nettoyage du buffer au niveau des cartes. \end{DoxyCompactList}\item 
+void \hyperlink{client_8c_a58933b3f31fdb65d7b59f2075ac45564}{print\+\_\+cards} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui va afficher les cartes en jeu. \end{DoxyCompactList}\item 
+int \hyperlink{client_8c_a7242a57cde933c761f8299e8decaf1de}{calculate\+\_\+score} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui va calculer le score. \end{DoxyCompactList}\item 
+void \hyperlink{client_8c_ae27c64803e65cc4b90c30a03a213aa6b}{receive\+\_\+message} (int \hyperlink{client_8c_ae887b77f939a43b6387aa460f46836eb}{client\+\_\+socket}, char $\ast$$\ast$name)
+\begin{DoxyCompactList}\small\item\em Fonction qui va envoyer ua client un message du serveur en fonction des configs données. \end{DoxyCompactList}\item 
+void \hyperlink{client_8c_adc564b1835274102115eb7e5969dadc5}{create\+\_\+nickname} (char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Fonction qui va créer un pseudo à un joueur. \end{DoxyCompactList}\item 
+void \hyperlink{client_8c_a32641083b53a88465743f059fa60c984}{connect\+To\+Server} (int $\ast$\hyperlink{client_8c_ae887b77f939a43b6387aa460f46836eb}{client\+\_\+socket}, char $\ast$server\+\_\+ip, struct hostent $\ast$host, struct sockaddr\+\_\+in $\ast$server\+\_\+address)
+\begin{DoxyCompactList}\small\item\em Fonction qui va nous connecter à un serveur. \end{DoxyCompactList}\item 
+\hyperlink{config_8h_a1062901a7428fdd9c7f180f5e01ea056}{bool} \hyperlink{client_8c_a7bf4695f7782c334645514191cf18750}{fdp\+\_\+is\+\_\+valid} (int fdp)
+\item 
+int \hyperlink{client_8c_a94769cbc8673a692eebd5ce12a9b6663}{rand\+\_\+range} (int upper\+\_\+limit)
+\begin{DoxyCompactList}\small\item\em Fonction qui génère un nombre aléatoire dans le max de upperlimite. \end{DoxyCompactList}\item 
+int \hyperlink{client_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{client_8c_ae887b77f939a43b6387aa460f46836eb}{client\+\_\+socket}
+\item 
+int \hyperlink{client_8c_ac4a56f04e7cabfc5f4c467012f09d0f6}{hand} \mbox{[}\hyperlink{cards_8h_ab48a679225d82ec51e09e62d14313b34}{D\+E\+C\+K\+\_\+\+S\+I\+ZE}\mbox{]}
+\item 
+int \hyperlink{client_8c_a5f9a33eb1ad49eebc1c135f8e40762d0}{hand\+\_\+white} \mbox{[}\hyperlink{cards_8h_a308b28964d4d62d9376f756452df40fe}{D\+E\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+W\+H\+I\+TE}\mbox{]}
+\item 
+int \hyperlink{client_8c_af046b053e2ec02e26b5431c503a04793}{stash} \mbox{[}\hyperlink{cards_8h_ab48a679225d82ec51e09e62d14313b34}{D\+E\+C\+K\+\_\+\+S\+I\+ZE}\mbox{]}
+\item 
+int \hyperlink{client_8c_a741de07159ef83402d83a903405297d1}{cards\+\_\+in\+\_\+hand}
+\item 
+int \hyperlink{client_8c_a11bc9b70a69390634d42f6cb35569b4c}{cards\+\_\+in\+\_\+stash}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Projet de M\+C\+S3 2016 2017. 
+
+\begin{DoxyAuthor}{Author}
+B\+E\+N\+C\+H\+I\+HA -\/ S\+A\+L\+E\+N\+G\+RO -\/ L\+E\+F\+O\+RT 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+D\+E\+C\+E\+M\+B\+RE -\/ J\+A\+N\+V\+I\+ER
+\end{DoxyDate}
+Fichier gérant le client du projet 
+
+\subsection{Function Documentation}
+\index{client.\+c@{client.\+c}!calculate\+\_\+score@{calculate\+\_\+score}}
+\index{calculate\+\_\+score@{calculate\+\_\+score}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{calculate\+\_\+score()}{calculate_score()}}]{\setlength{\rightskip}{0pt plus 5cm}int calculate\+\_\+score (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_a7242a57cde933c761f8299e8decaf1de}{}\label{client_8c_a7242a57cde933c761f8299e8decaf1de}
+
+
+Fonction qui va calculer le score. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+score. 
+\end{DoxyReturn}
+\index{client.\+c@{client.\+c}!clear\+\_\+cards@{clear\+\_\+cards}}
+\index{clear\+\_\+cards@{clear\+\_\+cards}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{clear\+\_\+cards()}{clear_cards()}}]{\setlength{\rightskip}{0pt plus 5cm}void clear\+\_\+cards (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_ae4e7472a72b57c06f73a935270a8a7b4}{}\label{client_8c_ae4e7472a72b57c06f73a935270a8a7b4}
+
+
+Fonction de nettoyage du buffer au niveau des cartes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID. 
+\end{DoxyReturn}
+\index{client.\+c@{client.\+c}!connect\+To\+Server@{connect\+To\+Server}}
+\index{connect\+To\+Server@{connect\+To\+Server}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{connect\+To\+Server(int $\ast$client\+\_\+socket, char $\ast$server\+\_\+ip, struct hostent $\ast$host, struct sockaddr\+\_\+in $\ast$server\+\_\+address)}{connectToServer(int *client_socket, char *server_ip, struct hostent *host, struct sockaddr_in *server_address)}}]{\setlength{\rightskip}{0pt plus 5cm}void connect\+To\+Server (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{client\+\_\+socket, }
+\item[{char $\ast$}]{server\+\_\+ip, }
+\item[{struct hostent $\ast$}]{host, }
+\item[{struct sockaddr\+\_\+in $\ast$}]{server\+\_\+address}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_a32641083b53a88465743f059fa60c984}{}\label{client_8c_a32641083b53a88465743f059fa60c984}
+
+
+Fonction qui va nous connecter à un serveur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$client\+\_\+socket} & \\
+\hline
+{\em $\ast$server\+\_\+ip} & \\
+\hline
+{\em $\ast$host} & \\
+\hline
+{\em $\ast$server\+\_\+address} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID. 
+\end{DoxyReturn}
+\index{client.\+c@{client.\+c}!create\+\_\+nickname@{create\+\_\+nickname}}
+\index{create\+\_\+nickname@{create\+\_\+nickname}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{create\+\_\+nickname(char $\ast$name)}{create_nickname(char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}void create\+\_\+nickname (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_adc564b1835274102115eb7e5969dadc5}{}\label{client_8c_adc564b1835274102115eb7e5969dadc5}
+
+
+Fonction qui va créer un pseudo à un joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID. 
+\end{DoxyReturn}
+\index{client.\+c@{client.\+c}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{disconnect(bool information)}{disconnect(bool information)}}]{\setlength{\rightskip}{0pt plus 5cm}void disconnect (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{information}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_a4f63f6bd91eee4955bfb47c43c69580c}{}\label{client_8c_a4f63f6bd91eee4955bfb47c43c69580c}
+
+
+Fonction de déconnexion d\textquotesingle{}un client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em information} & boolean qui va vérifier si on s\textquotesingle{}est déconnecté ou pas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{client.\+c@{client.\+c}!fdp\+\_\+is\+\_\+valid@{fdp\+\_\+is\+\_\+valid}}
+\index{fdp\+\_\+is\+\_\+valid@{fdp\+\_\+is\+\_\+valid}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{fdp\+\_\+is\+\_\+valid(int fdp)}{fdp_is_valid(int fdp)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fdp\+\_\+is\+\_\+valid (
+\begin{DoxyParamCaption}
+\item[{int}]{fdp}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_a7bf4695f7782c334645514191cf18750}{}\label{client_8c_a7bf4695f7782c334645514191cf18750}
+\index{client.\+c@{client.\+c}!interrupt\+\_\+handler@{interrupt\+\_\+handler}}
+\index{interrupt\+\_\+handler@{interrupt\+\_\+handler}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{interrupt\+\_\+handler(int signum)}{interrupt_handler(int signum)}}]{\setlength{\rightskip}{0pt plus 5cm}void interrupt\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{int}]{signum}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_a1e135d989cd28349169939c6a73f2e87}{}\label{client_8c_a1e135d989cd28349169939c6a73f2e87}
+
+
+Fonction de déconnexion d\textquotesingle{}un client suita à un controle C. 
+
+Fonction de signal d\textquotesingle{}interruption.
+
+
+\begin{DoxyParams}{Parameters}
+{\em signum} & signal vérifiant le controle C \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em signum} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID 
+\end{DoxyReturn}
+\index{client.\+c@{client.\+c}!main@{main}}
+\index{main@{main}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$argv[])}{main(int argc, char *argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\label{client_8c_a0ddf1224851353fc92bfbff6f499fa97}
+\index{client.\+c@{client.\+c}!print\+\_\+cards@{print\+\_\+cards}}
+\index{print\+\_\+cards@{print\+\_\+cards}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{print\+\_\+cards()}{print_cards()}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+cards (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_a58933b3f31fdb65d7b59f2075ac45564}{}\label{client_8c_a58933b3f31fdb65d7b59f2075ac45564}
+
+
+Fonction qui va afficher les cartes en jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID. 
+\end{DoxyReturn}
+\index{client.\+c@{client.\+c}!rand\+\_\+range@{rand\+\_\+range}}
+\index{rand\+\_\+range@{rand\+\_\+range}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{rand\+\_\+range(int upper\+\_\+limit)}{rand_range(int upper_limit)}}]{\setlength{\rightskip}{0pt plus 5cm}rand\+\_\+range (
+\begin{DoxyParamCaption}
+\item[{int}]{upper\+\_\+limit}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_a94769cbc8673a692eebd5ce12a9b6663}{}\label{client_8c_a94769cbc8673a692eebd5ce12a9b6663}
+
+
+Fonction qui génère un nombre aléatoire dans le max de upperlimite. 
+
+Fonction qui vérifie si une carte est présente dans le tableau.
+
+
+\begin{DoxyParams}{Parameters}
+{\em upper\+\_\+limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$haystack} & \\
+\hline
+{\em needle} & \\
+\hline
+{\em length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\index{client.\+c@{client.\+c}!receive\+\_\+message@{receive\+\_\+message}}
+\index{receive\+\_\+message@{receive\+\_\+message}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{receive\+\_\+message(int client\+\_\+socket, char $\ast$$\ast$name)}{receive_message(int client_socket, char **name)}}]{\setlength{\rightskip}{0pt plus 5cm}void receive\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{int}]{client\+\_\+socket, }
+\item[{char $\ast$$\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_ae27c64803e65cc4b90c30a03a213aa6b}{}\label{client_8c_ae27c64803e65cc4b90c30a03a213aa6b}
+
+
+Fonction qui va envoyer ua client un message du serveur en fonction des configs données. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+\_\+socket} & \\
+\hline
+{\em $\ast$$\ast$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID. 
+\end{DoxyReturn}
+\index{client.\+c@{client.\+c}!refill@{refill}}
+\index{refill@{refill}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{refill()}{refill()}}]{\setlength{\rightskip}{0pt plus 5cm}void refill (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{client_8c_a55a92a02360355337f5b149add054789}{}\label{client_8c_a55a92a02360355337f5b149add054789}
+
+
+Fonction qui va remettre des cartes en jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+V\+O\+ID. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\index{client.\+c@{client.\+c}!cards\+\_\+in\+\_\+hand@{cards\+\_\+in\+\_\+hand}}
+\index{cards\+\_\+in\+\_\+hand@{cards\+\_\+in\+\_\+hand}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{cards\+\_\+in\+\_\+hand}{cards_in_hand}}]{\setlength{\rightskip}{0pt plus 5cm}int cards\+\_\+in\+\_\+hand}\hypertarget{client_8c_a741de07159ef83402d83a903405297d1}{}\label{client_8c_a741de07159ef83402d83a903405297d1}
+\index{client.\+c@{client.\+c}!cards\+\_\+in\+\_\+stash@{cards\+\_\+in\+\_\+stash}}
+\index{cards\+\_\+in\+\_\+stash@{cards\+\_\+in\+\_\+stash}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{cards\+\_\+in\+\_\+stash}{cards_in_stash}}]{\setlength{\rightskip}{0pt plus 5cm}int cards\+\_\+in\+\_\+stash}\hypertarget{client_8c_a11bc9b70a69390634d42f6cb35569b4c}{}\label{client_8c_a11bc9b70a69390634d42f6cb35569b4c}
+\index{client.\+c@{client.\+c}!client\+\_\+socket@{client\+\_\+socket}}
+\index{client\+\_\+socket@{client\+\_\+socket}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{client\+\_\+socket}{client_socket}}]{\setlength{\rightskip}{0pt plus 5cm}int client\+\_\+socket}\hypertarget{client_8c_ae887b77f939a43b6387aa460f46836eb}{}\label{client_8c_ae887b77f939a43b6387aa460f46836eb}
+\index{client.\+c@{client.\+c}!hand@{hand}}
+\index{hand@{hand}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{hand}{hand}}]{\setlength{\rightskip}{0pt plus 5cm}int hand\mbox{[}{\bf D\+E\+C\+K\+\_\+\+S\+I\+ZE}\mbox{]}}\hypertarget{client_8c_ac4a56f04e7cabfc5f4c467012f09d0f6}{}\label{client_8c_ac4a56f04e7cabfc5f4c467012f09d0f6}
+\index{client.\+c@{client.\+c}!hand\+\_\+white@{hand\+\_\+white}}
+\index{hand\+\_\+white@{hand\+\_\+white}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{hand\+\_\+white}{hand_white}}]{\setlength{\rightskip}{0pt plus 5cm}int hand\+\_\+white\mbox{[}{\bf D\+E\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+W\+H\+I\+TE}\mbox{]}}\hypertarget{client_8c_a5f9a33eb1ad49eebc1c135f8e40762d0}{}\label{client_8c_a5f9a33eb1ad49eebc1c135f8e40762d0}
+\index{client.\+c@{client.\+c}!stash@{stash}}
+\index{stash@{stash}!client.\+c@{client.\+c}}
+\subsubsection[{\texorpdfstring{stash}{stash}}]{\setlength{\rightskip}{0pt plus 5cm}int stash\mbox{[}{\bf D\+E\+C\+K\+\_\+\+S\+I\+ZE}\mbox{]}}\hypertarget{client_8c_af046b053e2ec02e26b5431c503a04793}{}\label{client_8c_af046b053e2ec02e26b5431c503a04793}
